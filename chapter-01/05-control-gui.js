@@ -18,9 +18,9 @@ function init() {
     // create a render and set the size
     var renderer = new THREE.WebGLRenderer()
 
-    renderer.setClearColor(new THREE.Color(0xeeeeee, 1.0))
+    renderer.setClearColor(new THREE.Color(0x000000))
     renderer.setSize(window.innerWidth, window.innerHeight)
-    renderer.shadowMapEnabled = true
+    renderer.shadowMap.enabled = true
 
     // create the ground plane
     var planeGeometry = new THREE.PlaneGeometry(60, 20, 1, 1)
@@ -86,10 +86,10 @@ function init() {
     // call the render function
     var step = 0
 
-    var controls = new (function () {
-        this.rotationSpeed = 0.02
-        this.bouncingSpeed = 0.03
-    })()
+    const controls = {
+        rotationSpeed: 0.02,
+        bouncingSpeed: 0.03
+    }
 
     var gui = new dat.GUI()
     gui.add(controls, 'rotationSpeed', 0, 0.5)
